@@ -1,0 +1,65 @@
+<ncipher-client-connector-config-list>
+
+  <ncipher-client-connector-config key="NC1" enable-pooling="true" enable-ssl="true" auth-user-id="ncuser" auth-passwd="ncuser123">
+
+    <connection-info port="12124" read-timeout="3000" connect-timeout="3000" useProxy="false">
+      <host-name>192.168.35.125</host-name>
+    </connection-info>
+
+    <pool-config min-count="1" max-count="30" check-interval="10000" max-idle-time="60000"  max-wait-time="500" max-wait-retry-counter="3">
+      <name>NC1</name>
+    </pool-config>
+
+    <ssl-info>
+      <trustmanager-class-name>com.alacriti.yaf.tcp.ClientTrustManager</trustmanager-class-name>
+      <self-keystore>
+	<file-name>./conf/Client.keystore</file-name>
+	<keystore-pass>tomcat</keystore-pass>
+	<key-alias>tomcat</key-alias>
+	<key-pass>tomcat</key-pass>
+      </self-keystore>
+      <peer-keystore>
+	      <file-name>./conf/TrustedClients.keystore</file-name>
+	<keystore-pass>djboutihunchback</keystore-pass>
+	<key-alias>hipsca</key-alias>
+	<key-pass>djboutihunchback</key-pass>
+    <certificate-check-info max-depth="1" verify-rootca="true" check-common-name="false" check-date="true">
+         <common-name>tomcat.alacriti.com</common-name>
+	</certificate-check-info>
+      </peer-keystore>
+    </ssl-info>
+
+  </ncipher-client-connector-config>
+  <ncipher-client-connector-config key="NC2" enable-pooling="true" enable-ssl="true" auth-user-id="ncuser" auth-passwd="ncuser123">
+
+    <connection-info port="12124" read-timeout="3000" connect-timeout="3000" useProxy="false">
+      <host-name>192.168.35.125</host-name>
+    </connection-info>
+
+    <pool-config min-count="1" max-count="30" check-interval="10000" max-idle-time="60000"  max-wait-time="500" max-wait-retry-counter="3">
+      <name>NC2</name>
+    </pool-config>
+
+    <ssl-info>
+      <trustmanager-class-name>com.alacriti.yaf.tcp.ClientTrustManager</trustmanager-class-name>
+      <self-keystore>
+      	<file-name>./conf/Client.keystore</file-name>
+      	<keystore-pass>tomcat</keystore-pass>
+      	<key-alias>tomcat</key-alias>
+      	<key-pass>tomcat</key-pass>
+      </self-keystore>
+      <peer-keystore>
+	      <file-name>./conf/TrustedClients.keystore</file-name>
+  <keystore-pass>djboutihunchback</keystore-pass>
+  <key-alias>hipsca</key-alias>
+  <key-pass>djboutihunchback</key-pass>
+  <certificate-check-info max-depth="1" verify-rootca="true" check-common-name="false" check-date="true">
+  <common-name>tomcat.alacriti.com</common-name>
+  </certificate-check-info>
+      </peer-keystore>
+    </ssl-info>
+
+  </ncipher-client-connector-config>
+
+</ncipher-client-connector-config-list>
+
