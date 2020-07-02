@@ -1,0 +1,77 @@
+[ {
+  "id" : 1,
+  "parentId" : 0,
+  "name" : "Warrior",
+  "color" : "Red"
+}, {
+  "id" : 2,
+  "parentId" : 0,
+  "name" : "Wizard",
+  "color" : "green"
+}, {
+  "id" : 3,
+  "parentId" : 0,
+  "name" : "Priest",
+  "color" : "white"
+}, { 
+  "id" : 4,
+  "parentId" : 0,
+  "name" : "Rogue",
+  "color" : "yellow"
+}, {
+  "id" : 5,
+  "parentId" : 1,
+  "name" : "Fighter",
+  "color" : "blue"
+}, {
+  "id" : 6,
+  "parentId" : 1,
+  "name" : "Paladin",
+  "color" : "lightblue"
+}, {
+  "id" : 7,
+  "parentId" : 1,
+  "name" : "Ranger",
+  "color" : "lightgreen"
+}, {
+  "id" : 8,
+  "parentId" : 2,
+  "name" : "Mage",
+  "color" : "grey"
+}, {
+  "id" : 9,
+  "parentId" : 2,
+  "name" : "Specialist Wizard",
+  "color" : "lightgrey"
+}, {
+  "id" : 10,
+  "parentId" : 3,
+  "name" : "Cleric",
+  "color" : "Red"
+}, {
+  "id" : 11,
+  "parentId" : 3,
+  "name" : "Druid",
+  "color" : "green"
+}, {
+  "id" : 12,
+  "parentId" : 3,
+  "name" : "Priest of specific mythos",
+  "color" : "white"
+}, {
+  "id" : 13,
+  "parentId" : 4,
+  "name" : "Thief",
+  "color" : "yellow"
+}, {
+  "id" : 14,
+  "parentId" : 4,
+  "name" : "Bard",
+  "color" : "blue"
+}, {
+  "id" : 15,
+  "parentId" : 13,
+  "name" : "Assasin",
+  "color" : "lightblue"
+} ]
+

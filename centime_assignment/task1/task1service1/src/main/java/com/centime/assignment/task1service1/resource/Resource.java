@@ -1,9 +1,6 @@
 package com.centime.assignment.task1service1.resource;
 
 import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -26,6 +23,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import com.centime.assignment.task1service1.entity.Person;
 import com.centime.assignment.task1service1.exception.ExceptionController;
 
 import brave.sampler.Sampler;
@@ -33,7 +31,6 @@ import brave.sampler.Sampler;
 
 @RestController
 @RequestMapping("/task1/service1/api/v1")
-@EnableWebMvc
 @Component
 public class Resource {
 	private  Logger logger = org.slf4j.LoggerFactory.getLogger(ExceptionController.class);
@@ -57,23 +54,23 @@ public class Resource {
 	}
 	
 	@PostMapping("/greet")
-	public ResponseEntity<String> greetPerson( @RequestBody String personStr) throws InterruptedException, ExecutionException {
+	public ResponseEntity<String> greetPerson( @RequestBody Person person) throws InterruptedException, ExecutionException {
 
 		logger.info("GreetPerson()");
 		ResponseSpec srvc2Resp = getService2Response();
-		ResponseSpec srvc3Resp = getService3Response(personStr);
+		ResponseSpec srvc3Resp = getService3Response(person);
 		return ResponseEntity.ok().body(getServiceRespBody(srvc2Resp) + " " + getServiceRespBody(srvc3Resp));
 	}
 	private String getServiceRespBody(ResponseSpec serviceResp) {
 
 		return 	serviceResp.toEntity(String.class).block().getBody();
 	}
-	private ResponseSpec getService3Response(String personStr) {
+	private ResponseSpec getService3Response(Person person) {
 		
 		return getWebclient()
 				  .post()
 				  .uri(URI.create("http://localhost:3003/task1/service3/api/v1/person"))
-				  .body(BodyInserters.fromValue(personStr))
+				  .body(BodyInserters.fromValue(person))
 				  .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				  .acceptCharset(Charset.forName("UTF-8")).retrieve();
 	
